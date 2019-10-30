@@ -1,4 +1,4 @@
-# GameOfDrones
+# Game Of Drones
 
 ### Running this app
 
