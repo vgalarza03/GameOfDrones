@@ -1,0 +1,13 @@
+h2,
+.winner {
+  text-align: center;
+}
+
+mat-form-field,
+textarea {
+  width: 100%;
+}
+
+mat-card{
+  width: 60%;
+}

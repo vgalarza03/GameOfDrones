@@ -1,0 +1,41 @@
+<mat-card *ngIf="weHaveaWinner === false">
+  <h2>Round {{roundCount}}</h2>
+  <h5>Player: {{currentPlayer}}</h5>
+
+  <form (submit)="saveMove(moveForm)" #moveForm="ngForm">
+    <div>
+
+      <mat-form-field>
+        <mat-label>Select move</mat-label>
+        <mat-select [(value)]="currentMove" required>
+          <mat-option value='none'>None</mat-option>
+          <mat-option value="paper">Paper</mat-option>
+          <mat-option value="rock">Rock</mat-option>
+          <mat-option value="scissors">Scissors</mat-option>
+        </mat-select>
+        <!-- <mat-error *ngIf="currentMove.hasError('required')">Please choose an animal</mat-error> -->
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="Primary" type="submit">Submit Move</button>
+  </form>
+</mat-card>
+
+<mat-card *ngIf="roundHistory.length >0 && weHaveaWinner === false">
+  <div>
+    <h6>Score</h6>
+    <mat-list-item *ngFor="let round of roundHistory">
+      <p mat-line> Round {{round.round}} Winner {{round.winner}}</p>
+    </mat-list-item>
+  </div>
+</mat-card>
+
+<mat-card *ngIf="weHaveaWinner === true" class="winner">
+  <div>
+    <h2>We have a WINNER!!</h2>
+    <h5 class="lead">{{winner}} is the new EMPEROR!</h5>
+    <p class="lead">Congratulations {{winner}} you've been the winner of the Game of Drones!</p>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg text-white" (click)="resetGame()" role="button">Play again</a>
+  </div>
+</mat-card>

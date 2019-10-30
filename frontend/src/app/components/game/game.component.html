@@ -1,0 +1,14 @@
+<h2>Enter Player's Names</h2>
+<mat-card>
+  <form (submit)="addGame(gameForm)" #gameForm="ngForm">
+    <mat-form-field>
+      <input matInput type="text" name="player1" ngModel required #player1="ngModel" placeholder="Player 1 Name">
+      <mat-error *ngIf="player1.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" name="player2" ngModel required #player2="ngModel" placeholder="Player 2 Name">
+      <mat-error *ngIf="player2.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="Primary" type="submit">Start</button>
+  </form>
+</mat-card>
